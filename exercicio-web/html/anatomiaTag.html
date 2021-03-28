@@ -1,0 +1,29 @@
+<!--Uma Tag em HTML pode ter corpo, ou não-->
+<!--Tags com corpo funcionam assim:-->
+<tag>
+    <bla> <!--Para abrir a tag coloco "< + tag + >"-->
+        <opa>Texto</opa> <!--Pode-se ter mais de uma tag igual-->
+        <opa>Texto</opa>
+        <opa>Texto</opa>
+        <opa>Texto</opa>
+    </bla> <!--Para fechar a tag coloco "< + / + tag + >"-->
+</tag>
+
+<!--Tag sem corpo funcionam assim:-->
+<meta><br><input> <!--Exemplos de tags reais do HTML-->
+
+<tag /><meta /><br /><input /> <!--Tags sem corpo podem ser fechadas dentro delas mesmas-->
+
+<!--Tags podem possuir em parametros, que são passados dentro dos sinais "<>", após o nome da tag-->
+<tag param1="valor1" param2='valor2'>
+    <!--Corpo da Tag-->
+</tag>
+
+<!--Tag sem corpo com parametros-->
+<tag param1="valor1" param2='valor2'/> <!--Note que fechamos dentro dela mesma-->
+
+<!--Podemos criar nossos proprios tipos personalizados que serão lidos utilizando JS-->
+<input type="text" cod3r-cpf>
+
+<!--Usando frameWorks como React ou Vue podemos criar nossas tags e tipos personalizados-->
+<calendario v-else></calendario> <!--v-else é um componente do Vue-->

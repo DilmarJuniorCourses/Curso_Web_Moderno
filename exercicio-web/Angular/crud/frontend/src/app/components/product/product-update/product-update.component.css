@@ -1,0 +1,15 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5px;
+
+}
+
+button {
+    margin: 20px 15px 0 0;
+}
+
+.yellow{
+    background-color: rgb(175, 175, 68);
+}

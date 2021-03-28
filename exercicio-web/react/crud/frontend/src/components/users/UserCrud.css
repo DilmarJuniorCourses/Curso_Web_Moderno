@@ -1,0 +1,13 @@
+@media(max-width: 1065px){
+    .reduzir > span {
+        display: none;
+    }
+}
+
+@media(max-width: 935px){
+    .reduzir {
+        display: flex;
+        font-size: 1em;
+        margin: 5px auto 0px auto;
+    }
+}

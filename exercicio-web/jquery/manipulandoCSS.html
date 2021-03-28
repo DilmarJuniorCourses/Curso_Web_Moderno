@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Manipulando CSS</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Manipulando CSS</h1>
+    <div id='div1'>1</div>
+    <div id='div2'>2</div>
+    <div id='div3'>3</div>
+    <div id='resultado'></div>
+    <script>
+        const fonte = $('#div1').css('font-family') //Colocando apenas a propriedade ele entende que quero ler a propriedade
+        $('#resultado').append(`Fon-Family #div1: ${fonte}.`)
+
+        $('#div1').css('font-size', '3em') //Passando o nome da propriedade e o valor ele Altera ou Inclui
+        $('#div1').css({'font-size': '3.5em', 'color': 'blue'}) //Posso passar varias propriedades como um objeto
+        $('#div1').css('font-size', function(){
+            return `${2*2}em`
+        })
+
+        $('#div2').addClass('destaque') //Posso adicionar uma classe
+        $('#div2').removeClass('destaque') //Posso remover uma classe
+
+        $('#div3').toggleClass('destaque') //Função toggle remove a classe se o elemento ja a tiver e adiciona se não tiver
+        
+        let temClasse = $('#div3').hasClass('destaque')
+        $('#resultado').append(`<br><br>#div3 possui a classe destaque: ${temClasse}`)
+        
+        $('#div3').toggleClass('destaque')
+        
+        temClasse = $('#div3').hasClass('destaque')
+        $('#resultado').append(`<br>#div3 possui a classe destaque: ${temClasse}`)
+        
+    </script>
+</body>

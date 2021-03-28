@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #01</h1>
+    <div id='conteudo1'></div>
+    <div id='conteudo2'></div>
+    <div id='conteudo3'></div>
+    <div>Sem ID !</div>
+
+    <script>
+
+        //Conteúdo 1
+        $('#conteudo1').append('<p>1</p>') //Append anexa os elementos/nós atrás dos ultimos elementos/nós ja existente
+
+        //Conteúdo 2
+        const elementosLista = [
+            $('<li></li>').append('Arroz'),
+            $('<li>').append('Feijão'),
+            $('<li>').append('Carne')    
+        ]
+        const lista = $('<ul><li>Sorvete</li></ul>')
+            .prepend(elementosLista) //Prepende anexa os elementos criados antes dos nós/elementos ja existentes
+        
+        $('#conteudo2').append(lista)
+
+        //Conteudo 3
+        $('#conteudo3').append('<h1>1</h1>', '<h1>2</h1>', ['<h1>3</h1>' , '<h1>4</h1>'])
+                       .append('<h1>5</h1>')
+                       .prepend('<h1>0</h1>') //Prepend coloca na frente de todos os elementos que ja existem
+        $('#conteudo3').html('<h1>12345</h1>') //html substitiu o nó ou html que está dentro do elemento referenciado
+        $('#conteudo3').text('<h1>123456</h1>') //text coloca um texto direto no elemento, que não é interpretado pelo html
+        
+        //Alterando todos de uma vez
+        $('div[id]').html('<strong>Quase todos !</strong>')
+    </script>
+</body>

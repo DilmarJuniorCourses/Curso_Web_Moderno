@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body')
+
+        const div1 = document.createElement('div')
+        div1.classList.add('destaque')
+        div1.innerHTML = 'Primeiro'
+
+        const  div2 = document.createElement('div')
+        div2.setAttribute('web-attrib', 'valor') //('Nome do atributo', 'valor do atributo')
+        div2.innerHTML = 'Segundo'
+
+        const p1 = document.createElement('p')
+        p1.innerHTML = 'Terceiro'
+        const div3 = document.createElement('div')
+        div3.appendChild(p1) //Serve para colocar algo como filho de algo
+
+        body.appendChild(div1)
+        body.appendChild(div2)
+        body.appendChild(div3)
+
+        const texto = document.createTextNode('Antes')
+        div3.insertBefore(texto, div3.childNodes[0]) //(elemento a ser inserido, elemento referencia) InsertBefore insere antes do elemento de referencia
+
+        const div4 = div3.cloneNode(true) //Coloando true ele clona os filhos tambem, colocando false ele nao clona os filhos
+        body.appendChild(div4)
+
+        document.querySelector('div:nth-of-type(4) p').innerHTML = 'Quarto' 
+        body.removeChild(div3)
+    </script>
+</body>
+
+</html>

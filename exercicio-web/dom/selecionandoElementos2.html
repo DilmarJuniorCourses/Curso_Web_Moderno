@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>              
+        document.querySelector('#primeiro').classList.add('destaque')
+
+        const divs = document.querySelectorAll('div') //Retorna um NodeList(Possui apenas a função forEach)
+        divs.forEach(element => element.classList.add('destaque'))
+
+        const colocaDestaque = (seletor) => document.querySelectorAll(seletor).forEach(element => element.classList.add('destaque'))
+        const retiraDestaque = (seletor) => document.querySelectorAll(seletor).forEach(element => element.classList.remove('destaque'))
+
+        retiraDestaque('*')
+        colocaDestaque('div')
+
+        retiraDestaque('*')
+        colocaDestaque('.terceiro.ultimo')
+
+        retiraDestaque('*')
+        colocaDestaque(':not(#primeiro)') //Pseudo Classe
+
+        retiraDestaque('*')
+        colocaDestaque(':nth-child(1)')
+
+        retiraDestaque('*')
+        colocaDestaque('div:nth-child(1)')
+
+        retiraDestaque('*')
+        colocaDestaque('[wb-attrib]')
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script href="listaAninhada.js"></script>
+
+<h1>Projeto</h1>
+<ul class="tree">
+    <li>
+        <span wm-folder>Back-End</span>
+        <ul>
+            <li>
+                <span wm-folder>app</span>
+                <ul>
+                    <li>produto.js</li>
+                    <li>usuario.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span wm-folder>config</span>
+                <ul>
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span wm-folder>Front-End</span>
+        <ul>
+            <li>
+                <span wm-folder>Public</span>
+                    <ul>
+                        <li>app.css</li>
+                        <li>app.js</li>
+                        <li>index.html</li>
+                    </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+        //Selecionando todos os elementos que possuem wm-folder (Guarda em um objeto) e percorrendo ele
+        document.querySelectorAll('[wm-folder]').forEach(folder => {
+            folder.onclick = function(e){
+                const ul = folder.nextElementSibling //nextElementSibling pega o elemento proximo ao elemento de referencia (elemento irmao)
+
+                display = ul.style.display
+                ul.style.display = display === 'none' ? 'block':'none' //de display foir === none ele se torna block, se nao ele se torna non (operador tenario)
+            }
+        })
+</script>

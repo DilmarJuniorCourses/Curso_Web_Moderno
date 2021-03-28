@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercicios HTMl</title>
+        <style>
+            #conteudo{
+                padding: 30px 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Exercícios HTML</h1>
+        </header>
+        <nav>
+            <a href wm-nav="exercicios/teste.html">00 - Teste</a> |
+            <a href wm-nav="exercicios/texto1.html">01 - Texto 1</a> |
+            <a href wm-nav="exercicios/texto2.html">02 - Texto 2</a> |
+            <a href wm-nav="exercicios/listas.html">03 - Listas</a> |
+            <a href wm-nav="exercicios/listaAninhada.html">04 - Lista Aninhada</a> |
+            <a href wm-nav="exercicios/links.html">05 - Links</a> |
+            <a href wm-nav="exercicios/tabela.html">06 - Tabela</a> |
+            <a href wm-nav="exercicios/form/form.html">07 - Formulário</a> |
+            <a href wm-nav="exercicios/imagens.html">08 - Imagens</a> |
+            <a href wm-nav="exercicios/video.html">09 - Video</a> |
+            <a href wm-nav="exercicios/tagsNaoVisuais.html">10 - Tags Não Visuais</a> |
+
+        </nav>
+        <section id="conteudo"></section>
+        <footer>
+            Curso Web Moderno
+        </footer>
+
+        <script>
+    /*document.querySelectorALL('[wm-nav]') é um objeto. Nesse caso estou pegando todos os objetos ids personalizados wm-nav*/
+            document.querySelectorAll('[wm-nav]').forEach(link => { /*forEach percorre o objeto e pega ele como param para a callback*/
+                const conteudo = document.getElementById('conteudo') /*Selecionando conteudo*/
+
+                link.onclick = function(e) { //Selecionado o evento onclick do link e criando uma função com param e
+                    e.preventDefault()
+
+                    fetch(link.getAttribute('wm-nav')) //Fazendo uma requisção AJAX usando o atriburo wm-nav (Promisse)
+                        .then(resp => resp.text()) //pega o retunr da função como param e tranforma ele em texto html
+                        .then(html => conteudo.innerHTML = html) //substituiu conteudo do ID conteudo pelo return da promisse
+                }
+            })
+        </script>
+    </body>
+</html>

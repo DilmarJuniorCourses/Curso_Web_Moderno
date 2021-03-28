@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        const imagem = document.querySelector('img')
+        console.log(imagem)
+
+        console.log('getAttribute: ', imagem.getAttribute('src')) //Lidando com valor textual. Posso pegar como param
+        console.log('src: ', imagem.src) //src especifico
+        console.log('["src"]: ', imagem['src'])
+        console.log('alt: ', imagem.alt)
+
+        console.log('\nElemento "img"......................')
+        console.log('NodeType: ', imagem.nodeType)
+        console.log('NodeName: ', imagem.nodeName)
+
+        const src = imagem.getAttributeNode('src') //Diferente do getAttribute que me da o valor, o getAttributeNode me da o nó que representa aquele atributo
+        console.log('\nAtributo "src".......................')
+        console.log('NodeType: ', src.nodeType)
+        console.log('NodeName: ', src.nodeName)
+
+        const link = document.querySelector('a')
+        console.log('\nElemento "a".........................')
+        console.log('href: ', link.href)
+        console.log('firstChild.nodeType: ', link.firstChild.nodeType)
+        link.firstChild.nodeValue = 'Novo Texto' 
+
+    </script>
+</body>
+
+</html>

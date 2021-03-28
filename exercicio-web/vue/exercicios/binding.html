@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>{{link}}</p>
+        <p><a href="{{ link }}">Canal ?</a></p> <!--Não funciona-->
+        <p><a v-bind:href="link">Canal</a></p><!--Navega porque fizemos um binding do atributo-->
+        <p><a :href="link">Canal com binding reduzido</a></p> <!--Outra forma de se escrever o biding-->
+        <p>
+            <input type="text" v-model='nome'> <!--Gera mudança a partir do input que atualiza o data-->
+            <p>{{nome}}</p>
+        </p>
+        <p>
+            <input type="text" value='nome'> <!--Não Gera mudança-->
+            <p>{{nome}}</p>
+        </p>
+        <p>
+            <input type="text" :value='nome'> <!--Altera o data mas Não Gera mudança-->
+            <p>{{nome}}</p>
+        </p>
+    </div>
+    <script>
+        new Vue ({
+            el: '#app',
+            data: {
+                nome: 'Maria',
+                link: 'https://www.youtube.com/c/COD3RCURSOS/featured'
+            },
+            watch: {
+                nome(novoValor){
+                    console.log(novoValor.toUpperCase())
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<h1>Video</h1>
+
+<style>
+    .progresso{
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444;
+        margin: 20px 0px;
+    }
+
+    .progresso > div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-weight: bold;
+        width: 0%;
+    }
+</style> 
+
+    <video id="meuVideo" width="800" height="450" controls controlsList='nodownload' title="Video Leonardo Moura Leitão e seu filho">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+        Seu Browser não suporta a tag de vídeo.
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<div id="botoes">
+    <button wm-play = "meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<script>
+
+     function progresso() {
+            const caminhoVideo = document.getElementById('meuVideo')
+            const elemento = document.querySelector('[wm-progresso] > div')
+            const width = elemento.style.width
+                
+            
+            if(width == '100%'){
+                clearInterval(contador)
+                console.log('Video Terminou !')
+            }else {
+                elemento.style.width = `${caminhoVideo.currentTime*2.22567}%`
+                elemento.innerHTML = `${(caminhoVideo.currentTime*2.22567).toFixed(1)}%`
+                let contador = setTimeout(() => progresso(), 1)
+            }
+        }
+
+        document.getElementById('meuVideo').onplay = function (e) {
+            progresso()
+        }
+
+        function playPauseVideo() {
+            const play = document.querySelector('[wm-play]')
+            const pause = document.querySelector('[wm-pause]')
+            const caminhoVideo = document.getElementById('meuVideo')
+
+            play.onclick = function (e) {
+                caminhoVideo.play()
+            }
+
+            pause.onclick = function (e) {
+                caminhoVideo.pause()
+            }
+        }
+
+        playPauseVideo()    
+       
+
+</script>

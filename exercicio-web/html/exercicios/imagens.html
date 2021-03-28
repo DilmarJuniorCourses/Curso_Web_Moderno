@@ -1,0 +1,100 @@
+<style>
+    p{
+        position: absolute;
+        display: none;
+    }
+    .circular{
+        width: 513px;
+        background-color: #444;
+    }
+    .texto{
+        width: 400px;
+    }
+    .texto img{
+        margin-right: 10px;
+    }
+    .cidade {
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+</style>
+
+<div wm-slider>
+    <p id="primeira">
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" 
+        alt="Muro da Cidade" width="513" height="342" title="Muro da Cidade por Tarso Bessa">
+        <!--Alt é um texto que sera exibido caso a imagem não seja carregada. Também auxilia deficientes visuais-->
+        <!--Title é o texto que a aparece ao se passar o mouse sobre a iamgem--> 
+    </p>
+    
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" 
+        alt="Intro Cod3r" height="342" title="Intro Cod3r">
+    </p>
+    
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de Janeiro" height="342">
+    </p>
+    
+    <p class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="Avatar" height="50" align="left">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Laudantium magni id sint nam sapiente vero iste esse, 
+        quaerat maxime explicabo voluptatum beatae, ex ipsum, 
+        iure praesentium odio? Ea laboriosam numquam ipsum quasi suscipit neque nesciunt! 
+        Dolore mollitia voluptatum quos amet.
+    </p>
+    
+    <p class="cidade"></p>
+    <p>
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+            media="(min-width: 600px)">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+        </picture>
+    </p>
+</div>
+
+<script>
+    function mover(element, inicio, final, passo, callback){
+        const novoInicio = inicio - passo
+        if(novoInicio >= final){
+            element.style.left = novoInicio + 'px'
+            setTimeout(() => mover(element,  novoInicio, final, passo, callback), 14)
+        } else
+            callback()
+    }
+    
+    function slider() {
+        const elementos = document.querySelectorAll('[wm-slider] > p')
+        const slides = Array.from(elementos)
+        exibirSlide(slides,slides[0])
+    }
+
+    function exibirSlide(slides, slide){
+        slide.style.display = "block"
+
+        const inicio = innerWidth //innerWidth me da o tamanho atual da tela
+        const final = -slide.clientWidth
+
+        slide.style.left = `${inicio}px`
+
+        mover(slide, inicio, final, 5, () => {
+            slide.style.display = "none"
+            exibirSlide(slides, getProximo(slides, slide))
+
+        })
+    }
+
+    function getProximo(lista, atual) {
+        const i = lista.indexOf(atual) + 1
+        return i < lista.length ? lista[i]: lista[0]
+    }
+
+    slider()
+    
+</script>

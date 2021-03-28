@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+<script href="listaAninhada.js"></script>
+
+<h1>Projeto</h1>
+<ul class="tree">
+    <li>
+        <span id="tituloBackEnd">Back-End</span>
+        <ul id="ul1">
+            <li>
+                <span id="tituloApp">app</span>
+                <ul id="ul2">
+                    <li>produto.js</li>
+                    <li>usuario.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span id="tituloConfig">config</span>
+                <ul id="ul3">
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span id="tituloFrontEnd">Front-End</span>
+        <ul id="ul4">
+            <li>
+                <span id="tituloPublic">Public</span>
+                    <ul id="ul5">
+                        <li>app.css</li>
+                        <li>app.js</li>
+                        <li>index.html</li>
+                    </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    function EscondeElemento(id){
+        document.getElementById(id).style.display = "none"
+    }
+
+    function MostraElemento(id){
+        document.getElementById(id).style.display = "block"
+    }
+    
+    let contador1 = 0;
+
+    document.getElementById('tituloBackEnd').onclick = function(e){
+        if(contador1 == 0){
+        EscondeElemento('ul1')
+        contador1++;
+        }
+        else{
+        MostraElemento('ul1')
+        contador1--
+        }
+    }
+
+    let contador2 = 0;
+    document.getElementById('tituloApp').onclick = function(e){
+        if(contador2 == 0){
+        EscondeElemento('ul2')
+        contador2++;
+        }
+        else{
+        MostraElemento('ul2')
+        contador2--
+        }
+    }
+
+    let contador3 = 0;
+    document.getElementById('tituloConfig').onclick = function(e){
+        if(contador3 == 0){
+        EscondeElemento('ul3')
+        contador3++;
+        }
+        else{
+        MostraElemento('ul3')
+        contador3--
+        }
+    }
+
+    let contador4 = 0;
+    document.getElementById('tituloFrontEnd').onclick = function(e){
+        if(contador4 == 0){
+        EscondeElemento('ul4')
+        contador4++;
+        }
+        else{
+        MostraElemento('ul4')
+        contador4--
+        }
+    }
+
+    let contador5 = 0;
+    document.getElementById('tituloPublic').onclick = function(e){
+        if(contador5 == 0){
+        EscondeElemento('ul5')
+        contador5++;
+        }
+        else{
+        MostraElemento('ul5')
+        contador5--
+        }
+    }
+</script>

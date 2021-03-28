@@ -1,0 +1,1 @@
+module.exports.saudacaoC = 'Bom dia ! Essa é a saudação da pasta C'

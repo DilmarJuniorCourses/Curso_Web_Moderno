@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('Elemento "ul"...................')
+        console.log('childNodes: ', lista.childNodes)
+        console.log('Destino: ', lista.destino)
+        console.log('getAttribute: ', lista.getAttribute('destino'))
+        console.log('hasAttribute: ', lista.hasAttribute('data-urgencia')) //Retorna true se tiver o atributo especificado e false se nao tiver
+        lista.setAttribute('destino', 'empresa') //setAttribute pode ser usado para substituir o valor de um atributo
+        console.log('getAttribute: ', lista.getAttribute('destino'))
+        lista.setAttribute('status', 'aberto') //Também serve para adicionar um atributo
+        console.log('getAttribute Status: ', lista.getAttribute('status'))
+        lista.removeAttribute('destino')
+        console.log('hasAttribute destino: ', lista.hasAttribute('destino'))
+
+        console.log(lista.dataset) //Atributos personalizados marcados pelo prefixo "data-" tem uma ligeira diferença
+        console.log('valor dataset urgencia: ',lista.dataset.urgencia) 
+        lista.dataset.urgencia = 4
+        console.log('getAttribute dataset urgencia: ', lista.getAttribute('data-urgencia'))
+
+        //Cuidados
+
+        const label = document.querySelector('label')
+        console.log(label.for)
+        console.log('Label htmlFor: ', label.htmlFor)
+        console.log('getAttribute label for: ', label.getAttribute('for'))
+
+    </script>
+</body>
+
+</html>
